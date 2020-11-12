@@ -9,7 +9,7 @@ const refs = getRefs();
 const newsApiService = new NewsApiService();
 
 refs.form.addEventListener('submit', onSearch);
-refs.loadMoreBtn.addEventListener('click', fetchArticles);
+refs.loadMoreBtn.addEventListener('click', fetchImgGall);
 
 const loadMoreBtn = new LoadMoreBtn({
     selector: '[data-action="load-more"]',
@@ -28,18 +28,26 @@ function onSearch(e){
   loadMoreBtn.show();
   newsApiService.resetPage();
   clearImagesGallery();
-  fetchArticles();
+  fetchImgGall();
 }
 
 
-function fetchArticles() {
+function fetchImgGall() {
     loadMoreBtn.disable();
-    newsApiService.fetchArticles().then(images => {
+    newsApiService.fetchImgGall().then(images => {
         appendImagesGall(images);
       loadMoreBtn.enable();
+      scrollImg();
     }).catch(error => console.log(error));
-    
   }
+
+function scrollImg() {
+    window.scrollBy({
+      top: document.documentElement.clientHeight - 100,
+      behavior: 'smooth',
+    });
+}
+
 
 function appendImagesGall(images) {
     refs.gallery.insertAdjacentHTML('beforeend', imagesTempl(images));
