@@ -9,18 +9,20 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
   color: #2a2a2a;
+  background-image: url("../images/backr.png");
 }
 
 img {
-  display: block;
   max-width: 100%;
   height: auto;
+ 
 }
 
 ul {
   padding: 0;
   margin: 0;
   list-style: none;
+  text-align: center;
 }
 
 .search-form {
@@ -55,6 +57,7 @@ ul {
 .button > .spinner.is-hidden {
   display: none;
 }
+
 
 .input {
  margin-right: 10px;
