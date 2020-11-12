@@ -37,7 +37,8 @@ function fetchArticles() {
     newsApiService.fetchArticles().then(images => {
         appendImagesGall(images);
       loadMoreBtn.enable();
-    });
+    }).catch(error => console.log(error));
+    
   }
 
 function appendImagesGall(images) {
