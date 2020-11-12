@@ -14,9 +14,9 @@ export default class NewsApiService {
   
       return fetch(url)
         .then(response => response.json())
-        .then(({images}) => {
+        .then(({hits}) => {
           this.incrementPage();
-          return images;
+          return hits;
         });
     }
   
