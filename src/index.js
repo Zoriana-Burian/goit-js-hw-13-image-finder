@@ -22,7 +22,7 @@ function onSearch(e){
  newsApiService.query = e.currentTarget.elements.query.value;
 
  if (newsApiService.query === '') {
-    return alert('Введите название');
+    return alert('Enter the name please ...');
   }
 
   loadMoreBtn.show();
@@ -38,6 +38,12 @@ function fetchImgGall() {
         appendImagesGall(images);
       loadMoreBtn.enable();
       scrollImg();
+      
+      if (images.length === 0) {    
+        loadMoreBtn.hide();
+        return alert('There is no more information on your request!');
+      } 
+     
     }).catch(error => console.log(error));
   }
 
